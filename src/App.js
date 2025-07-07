@@ -7,7 +7,9 @@ import {
   faPlus, faTasks, faEdit, faTrashAlt, faSave,
   faTimes
 } from '@fortawesome/free-solid-svg-icons';
-import { getTasks, saveTasks } from './utils/localStorage';
+
+const getTasksFromStorage = () => JSON.parse(localStorage.getItem('tasks')) || [];
+const saveTasksToStorage = (tasks) => localStorage.setItem('tasks', JSON.stringify(tasks));
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -40,12 +42,12 @@ const Login = ({ onLogin }) => {
 const App = () => {
   const [username, setUsername] = useState(localStorage.getItem('username') || '');
   const [searchQuery, setSearchQuery] = useState('');
-  const [tasks, setTasks] = useState(getTasks());
+  const [tasks, setTasks] = useState(getTasksFromStorage());
   const [showAddCard, setShowAddCard] = useState(false);
   const [editTaskId, setEditTaskId] = useState(null);
 
   useEffect(() => {
-    saveTasks(tasks);
+    saveTasksToStorage(tasks);
   }, [tasks]);
 
   const addTask = (title, description, priority = 'medium') => {
