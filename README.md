@@ -40,7 +40,8 @@ A modern and intuitive task management application built with React.js. TaskBloo
 In the project directory, you can run:
 
 ## Live Demo
-https://taskbloom-chi.vercel.app/
+https://taskbloom-git-main-trishas-projects-4afcdad0.vercel.app
+
 
 ## Screenshots
 ### Login Page
