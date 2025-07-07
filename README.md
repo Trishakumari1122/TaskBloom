@@ -16,7 +16,7 @@ A modern and intuitive task management application built with React.js. TaskBloo
 
 ## Setup Instructions
 1. Clone the repository
-   ```bash
+   bash
    git clone <https://github.com/Trishakumari1122/TaskBloom.git>
    cd task-tracker
 
@@ -25,7 +25,7 @@ A modern and intuitive task management application built with React.js. TaskBloo
 
    # Start the app
    npm start
-   ```
+   
 2. Access
    - Open [http://localhost:3000]
    - Enter any username to get started
@@ -41,6 +41,7 @@ In the project directory, you can run:
 
 ## Live Demo
 https://taskbloom-chi.vercel.app/
+<<<<<<< HEAD
 
 ## Screenshots
 ### Login Page
@@ -52,6 +53,8 @@ https://taskbloom-chi.vercel.app/
 
 
 
+=======
+>>>>>>> f6323fba8b7a352d2a3bec66975c6f3804c45cbc
 
 
 
