@@ -41,7 +41,6 @@ In the project directory, you can run:
 
 ## Live Demo
 https://taskbloom-chi.vercel.app/
-<<<<<<< HEAD
 
 ## Screenshots
 ### Login Page
@@ -53,8 +52,6 @@ https://taskbloom-chi.vercel.app/
 
 
 
-=======
->>>>>>> f6323fba8b7a352d2a3bec66975c6f3804c45cbc
 
 
 
