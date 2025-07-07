@@ -7,9 +7,7 @@ import {
   faPlus, faTasks, faEdit, faTrashAlt, faSave,
   faTimes
 } from '@fortawesome/free-solid-svg-icons';
-
-const getTasksFromStorage = () => JSON.parse(localStorage.getItem('tasks')) || [];
-const saveTasksToStorage = (tasks) => localStorage.setItem('tasks', JSON.stringify(tasks));
+import { getTasks, saveTasks } from './utils/localStorage';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -42,16 +40,16 @@ const Login = ({ onLogin }) => {
 const App = () => {
   const [username, setUsername] = useState(localStorage.getItem('username') || '');
   const [searchQuery, setSearchQuery] = useState('');
-  const [tasks, setTasks] = useState(getTasksFromStorage());
+  const [tasks, setTasks] = useState(getTasks());
   const [showAddCard, setShowAddCard] = useState(false);
   const [editTaskId, setEditTaskId] = useState(null);
 
   useEffect(() => {
-    saveTasksToStorage(tasks);
+    saveTasks(tasks);
   }, [tasks]);
 
   const addTask = (title, description, priority = 'medium') => {
-    const newTask = {
+    const Task = {
       id: Date.now(),
       title,
       description,
@@ -60,7 +58,7 @@ const App = () => {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     };
-    setTasks([newTask, ...tasks]);
+    setTasks([Task, ...tasks]);
     setShowAddCard(false);
   };
 
@@ -134,7 +132,14 @@ const App = () => {
             <div className="task-card-meta">
               <span className="task-date">
                 <FontAwesomeIcon icon={faCalendarDay} className="meta-icon" />
-                {new Date(task.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+                {new Date(task.createdAt).toLocaleString(undefined, {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  hour12: true
+                })}
               </span>
             </div>
             <div className="task-card-footer">
